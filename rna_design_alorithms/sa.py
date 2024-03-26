@@ -5,6 +5,12 @@ import time
 from utilis.RNA_fold import str_distance, predict_structure
 import matplotlib.pyplot as plt
 
+def generate_initial_sequence(structure_length):
+    """
+    随机生成与目标结构长度相等的RNA序列。
+    """
+    nucleotides = ['A', 'U', 'C', 'G']
+    return ''.join(random.choice(nucleotides) for _ in range(structure_length))
 
 def mutate_sequence(seq):
     """随机变异序列中的一个碱基"""
@@ -16,12 +22,14 @@ def mutate_sequence(seq):
     return seq[:pos] + mutated_nucleotide + seq[pos + 1:]
 
 
-def simulated_annealing(target_structure, initial_sequence, temperature=100.0, cooling_rate=0.95, max_steps=1000):
+def simulated_annealing(target_structure,  temperature=100.0, cooling_rate=0.95, max_steps=1000):
+    initial_sequence = generate_initial_sequence(len(target_structure))
     current_seq = initial_sequence
     current_structure, _ , _= predict_structure(current_seq)
     current_distance = str_distance(current_structure, target_structure)
     best_distances = [current_distance]
     best_seq = [current_seq]
+    best_str = [current_structure]
 
     for step in range(max_steps):
         temperature *= cooling_rate
@@ -37,26 +45,26 @@ def simulated_annealing(target_structure, initial_sequence, temperature=100.0, c
         if current_distance < best_distances[-1]:
             best_distances.append(current_distance)
             best_seq.append(current_seq)
+            best_str.append(current_structure)
         else:
             best_distances.append(best_distances[-1])
             best_seq.append(best_seq[-1])
+            best_str.append(best_str[-1])
 
         if current_distance == 0:
             break
 
-    return current_seq, current_structure, current_distance, best_distances
+    return best_seq,best_str, best_distances
 
 
 # define main to get example working
 if __name__ == '__main__':
     target_structure = "(((....)))((...))"
-    initial_sequence = "GCGCUUCGCCGCGCCG"
 
-    final_sequence, final_structure, final_distance, best_distances = simulated_annealing(target_structure,
-                                                                                          initial_sequence)
-    print("Final Sequence:", final_sequence)
-    print("Final Structure:", final_structure)
-    print("Final Distance:", final_distance)
+    best_seq,best_str, best_distances= simulated_annealing(target_structure)
+    print("Final Sequence:", best_seq[-1])
+    print("Final Structure:", best_str[-1])
+    print("Final Distance:", best_distances[-1])
 
     # 绘制最优解的迭代曲线
     plt.plot(best_distances)
