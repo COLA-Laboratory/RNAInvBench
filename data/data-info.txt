@@ -1,0 +1,11 @@
+Rfam-Learn: 100 samples from Rfam 13.0
+Rfam-Taneda-Test: 29 samples from Rfam 9.0
+Rfam-Kleinkauf-Test: 63 samples from https://github.com/RobertKleinkauf/antarna/tree/antaRNAdp/Constraints
+RNA-Strand: 50 samples from https://github.com/RobertKleinkauf/antarna/tree/antaRNAdp/Constraints
+Eterna100-v1: 100 samples (with the 19 samples that are unsolvable if using the thermodynamic parameters in ViennaRNA)
+Eterna100-v2: 100 samples (all samples are solvable even with ViennaRNA)
+ArchiveII: Pseudoknot data (TODO)
+Pseudobase++: 262 samples from https://github.com/RobertKleinkauf/antarna/tree/antaRNAdp/Constraints
+
+
+RNA data collated by RNA_BENCH: https://www.biorxiv.org/content/10.1101/2024.01.09.574794v1.full.pdf
