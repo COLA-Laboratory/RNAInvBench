@@ -3,7 +3,7 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcontent_paired=50, GCcontent_unpaired=50, seed=''):
+def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcontent_paired=0.5, GCcontent_unpaired=0.5, seed=''):
     '''
     Call RNA-SSD from RNA Designer online web application to find an RNA sequence that folds into the target structure.
     Using ViennaRNA packages inside on secondary structure prediction.
@@ -33,6 +33,10 @@ def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcon
         - gc_paired/gc_unpaired (float): GC content of paired/unpaired regions
         - seed (int): random seed used in this design loop
     '''
+    # handle input
+    GCcontent_paired = GCcontent_paired * 100
+    GCcontent_unpaired = GCcontent_unpaired * 100
+
     # post
     web_url = 'http://www.rnasoft.ca/cgi-bin/RNAsoft/RNAdesigner/rnadesign.pl'
 
@@ -78,7 +82,7 @@ def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcon
             input_dict['seed'] = int(value)
 
     # output parameters
-    output_nSeq = []
+    output_Seq = []
     start_ind = 11
     len = 8
     for i in range(input_dict["n_seq"]):
@@ -110,10 +114,10 @@ def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcon
             elif key == 'Random number seed for this sequence':
                 output_dict['seed'] = int(value)
         # add to outputs list
-        output_nSeq.append(output_dict)
+        output_Seq.append(output_dict)
         start_ind += 1
 
-    return output_nSeq
+    return output_Seq
 
 # example usage
 if __name__ == "__main__":
