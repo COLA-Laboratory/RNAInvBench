@@ -20,10 +20,10 @@ def call_rnainverse(target_structure):
     rna_sequence = process.stdout.strip()
     structure, mfe, computation_time = predict_structure(rna_sequence)
     distance = str_distance(structure, target_structure)
-    return rna_sequence,structure,distance
+    return rna_sequence, structure, distance
 
 if __name__ == '__main__':
     # Example usage:
     target_structure = "(((....)))((...))"
-    rna_sequence ,structure,distance= call_rnainverse(target_structure)
+    rna_sequence, structure, distance = call_rnainverse(target_structure)
     print(f"RNA sequence that folds into the target structure: {rna_sequence}")
