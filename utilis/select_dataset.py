@@ -1,14 +1,14 @@
 import pandas as pd
 
-databases = ['rfam_taneda-test', 'rfam_learn-test', 'anta_strand-test', 'ArchiveII-test', 'eterna100_v2', 'eterna100_v1']
+datasets = ['rfam_taneda-test', 'rfam_learn-test', 'anta_strand-test', 'ArchiveII-test', 'eterna100_v2', 'eterna100_v1']
 
-def select_database(file, database=None, range_len=None, rep=0):
+def select_dataset(file, dataset=None, range_len=None, rep=0):
     """
-    select data from one database
+    select data from one dataset
 
     parameters:
     - file (str): from which pkl file
-    - database (str): name of database
+    - database (str): name of dataset
         - one of ['rfam_taneda-test', 'rfam_learn-test', 'anta_strand-test', 'ArchiveII-test', 'eterna100_v2', 'eterna100_v1']
     - range_len ([min, max]): range of target length
         - default: None, no length limits.
@@ -23,11 +23,11 @@ def select_database(file, database=None, range_len=None, rep=0):
     df = pd.read_pickle(file)
 
     # database
-    if database is not None:
-        if isinstance(database, str):
-            database = [database]
+    if dataset is not None:
+        if isinstance(dataset, str):
+            dataset = [dataset]
 
-        df = df[df['origin'].isin(database)]
+        df = df[df['origin'].isin(dataset)]
 
     # length range
     if range_len is not None:
@@ -50,9 +50,12 @@ def select_database(file, database=None, range_len=None, rep=0):
 if __name__ == "__main__":
     # example
 
-    # database = 'eterna100_v1'  # one database
-    database = ['rfam_taneda-test', 'rfam_learn-test']  # multiple databases
+    dir = '../data/'
     file = 'inverse_rna_folding_benchmark_dotbracket.pkl.gz'
+    path = dir + file
+
+    # dataset = 'eterna100_v1'  # one database
+    dataset = ['rfam_taneda-test', 'rfam_learn-test']  # multiple databases
     range_len = [1, 500]
-    target_structure, _ = select_database(file, database, range_len)
+    target_structure, _ = select_dataset(path, dataset, range_len)
     print(target_structure)
