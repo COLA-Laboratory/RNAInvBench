@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     # print("----- RNAinverse without start strings --------")
     # for i in range(tries):
-    #     start = 'NNNNNNNNNNNNNNNNN'
+    #     start = 'NNNNNNNNNNNNNNNNN'  # without sequence constraints
     #     seq, dis = ViennaRNA.inverse_fold(start, target_structure)
     #     print(seq, dis)
 

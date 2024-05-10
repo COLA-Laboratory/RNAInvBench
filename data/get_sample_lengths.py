@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-directory = "data/"
+directory = "../data/"
 
 # Iterate over each file in the directory
 for file_name in os.listdir(directory):
