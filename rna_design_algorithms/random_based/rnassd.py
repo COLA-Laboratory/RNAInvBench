@@ -1,9 +1,10 @@
 import re
+import pandas as pd
 
 import requests
 from bs4 import BeautifulSoup
 
-def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcontent_paired=0.5, GCcontent_unpaired=0.5, seed=''):
+def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcontent_paired=0.5, GCcontent_unpaired=0.5, seed='', save_file="rnassd_result"):
     '''
     Call RNA-SSD from RNA Designer online web application to find an RNA sequence that folds into the target structure.
     Using ViennaRNA packages inside on secondary structure prediction.
@@ -39,6 +40,8 @@ def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcon
 
     # post
     web_url = 'http://www.rnasoft.ca/cgi-bin/RNAsoft/RNAdesigner/rnadesign.pl'
+    # temp email
+    temporary_email = get_temporary_email()
 
     data = {
         'structure': target_structure,
@@ -48,6 +51,8 @@ def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcon
         'GCcontent_paired': str(GCcontent_paired),
         'GCcontent_unpaired': str(GCcontent_unpaired),
         'seed': str(seed),
+        'byemail': 'checked',
+        'email': temporary_email,
         'bywebpage': 'checked',
         'Submit': 'Run RNA Designer'
     }
@@ -82,14 +87,14 @@ def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcon
             input_dict['seed'] = int(value)
 
     # output parameters
-    output_Seq = []
+    outputs = []
     start_ind = 11
     len = 8
     for i in range(input_dict["n_seq"]):
         # for every tries
         output_dict = {}
         output_trs = terms[start_ind: start_ind + len]
-
+        output_trs.append(terms[-4])  # computation time
         for tr in output_trs:
             key = tr.font.text.split('[')[0].strip()
             value = tr.b.text.strip()
@@ -113,21 +118,55 @@ def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcon
                 output_dict['gc_unpaired'] = float(value.split('%')[0])
             elif key == 'Random number seed for this sequence':
                 output_dict['seed'] = int(value)
+            elif key == 'Computation time':
+                output_dict['Computation_time'] = re.search(r'\d+.\d+', value).group()
         # add to outputs list
-        output_Seq.append(output_dict)
+        outputs.append(output_dict)
         start_ind += 1
 
-    return output_Seq
+    # save to file
+    sequence = []
+    time = []
+    distance = []
+    for item in outputs:
+        sequence.append(item['designed_sequence'])
+        time.append(item['Computation_time'])
+        distance.append(item['distance'])
+    data = {'sequence':sequence,
+            'time': time,
+            'distance': distance}
+    df = pd.DataFrame(data)
+    save_file = 'results/' + save_file + '.pkl'
+    df.to_pickle(save_file)
+
+    return sequence
+
+def get_temporary_email():
+    response = requests.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=1")
+    data = response.json()
+    return data[0]
+
+def check_email(email):
+    username, domain = email.split("@")
+    response = requests.get(f"https://www.1secmail.com/api/v1/?action=getMessages&login={username}&domain={domain}")
+    data = response.json()
+    return data
+
+def get_email_content(email, email_id):
+    username, domain = email.split("@")
+    response = requests.get(f"https://www.1secmail.com/api/v1/?action=readMessage&login={username}&domain={domain}&id={email_id}")
+    data = response.json()
+    return data["body"]
+
+
+
+
+
 
 # example usage
 if __name__ == "__main__":
     target_structure = "((((((....)))).))..(((..(((...))))))"
-    outputs = call_rnassd(target_structure, tries=3)
-    n = 0  # may have many designed sequences(here is 3)
-    for i in outputs:
-        n += 1
-        print(f'Sequence {n}(order by MFE)')
-        for key, value in i.items():
-            print(f'{key}: {value}')
-        print('----------------')
+    sequence = call_rnassd(target_structure, tries=1)
+    print(sequence)
+
 

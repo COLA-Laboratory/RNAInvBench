@@ -3,7 +3,7 @@ import pandas as pd
 import os
 from utilis.RNA_fold import get_str
 from sa import simulated_annealing
-from rnaiverse import call_rnainverse
+from rnainverse import call_rnainverse
 import argparse
 def main(args):
     file_name = args.file_name
