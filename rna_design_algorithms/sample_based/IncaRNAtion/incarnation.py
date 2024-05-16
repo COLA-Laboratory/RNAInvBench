@@ -7,7 +7,7 @@ import pandas as pd
 import ViennaRNA
 from rna_design_algorithms.sample_based.IncaRNAtion.utils.sample import sample_incarnation
 
-def call_incarnation(target_structure, constraints=None, tries=1, GCcontent=None, time_limit=None, save_file="incarnation_result"):
+def call_incarnation(target_structure, constraints=None, tries=1, GCcontent=None, time_limit=None, save_file="results/incarnation_result"):
     """
     Use incarnation sampling as a start sequence of RNAinverse.
 
@@ -55,21 +55,21 @@ def call_incarnation(target_structure, constraints=None, tries=1, GCcontent=None
         # time limit has reached, save empty file
         data = {'sequence': [], 'time': [], 'distance': []}
         df = pd.DataFrame(data)
-        save_file = 'results/' + save_file + '.pkl'
+        save_file = save_file + '.pkl'
         df.to_pickle(save_file)
         return []
     except ZeroDivisionError:
         # sometimes incarnation sampling will raise this error
         data = {'sequence': [], 'time': [], 'distance': []}
         df = pd.DataFrame(data)
-        save_file = 'results/' + save_file + '.pkl'
+        save_file = save_file + '.pkl'
         df.to_pickle(save_file)
         return []
 
     # save to file
-    data = {'sequence': output_Seq, 'time': time_consumes, 'distance': output_Dis}
+    data = {'target_structure': target_structure, 'sequence': output_Seq, 'time': time_consumes, 'distance': output_Dis}
     df = pd.DataFrame(data)
-    save_file = 'results/' + save_file + '.pkl'
+    save_file = save_file + '.pkl'
     df.to_pickle(save_file)
 
     return output_Seq
@@ -87,6 +87,9 @@ if __name__ == "__main__":
 
     for i in range(tries):
         print(output_seq[i])
+
+    df = pd.read_pickle("results/incarnation_result.pkl")
+    pass
 
     # print("----- RNAinverse without start strings --------")
     # for i in range(tries):

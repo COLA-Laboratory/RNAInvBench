@@ -2,7 +2,7 @@ import ViennaRNA
 import time
 import pandas as pd
 
-def call_rnainverse(target_structure, cnstraint=None, tries=1, save_file='rnainverse_result'):
+def call_rnainverse(target_structure, constraint=None, tries=1, save_file='results/rnainverse_result'):
     """
     Call RNAinverse from ViennaRNA package to find an RNA sequence that folds into the target structure.
     Parameters:
@@ -12,7 +12,7 @@ def call_rnainverse(target_structure, cnstraint=None, tries=1, save_file='rnainv
     Returns:
     - str: An RNA sequence that is predicted to fold into the target structure.
     """
-    if cnstraint is None:
+    if constraint is None:
         constraint = ''.join(['N'] * len(target_structure))
     sequences_design = []
     distance_design = []
@@ -26,9 +26,9 @@ def call_rnainverse(target_structure, cnstraint=None, tries=1, save_file='rnainv
         time_consume.append(end_time-start_time)
 
     # save to file
-    data = {'sequence': sequences_design, 'time': time_consume, 'distance': distance_design}
+    data = {'target_structure': target_structure, 'sequence': sequences_design, 'time': time_consume, 'distance': distance_design}
     df = pd.DataFrame(data)
-    save_file = 'results/' + save_file + '.pkl'
+    save_file = save_file + '.pkl'
     df.to_pickle(save_file)
 
     return sequences_design
@@ -36,5 +36,7 @@ def call_rnainverse(target_structure, cnstraint=None, tries=1, save_file='rnainv
 if __name__ == '__main__':
     # Example usage:
     target_structure = "(((....)))((...))"
-    rna_sequence = call_rnainverse(target_structure)
+    rna_sequence = call_rnainverse(target_structure, tries=3)
     print(f"RNA sequence that folds into the target structure: {rna_sequence}")
+    df = pd.read_pickle("results/rnainverse_result.pkl")
+    pass

@@ -9,10 +9,10 @@ def structureDistance(result_folder='results', plot=False):
 
     parameters:
     - result_folder (str): folder path of results of one algorithm.
-
+    - plot (bool): plot or not
 
     return:
-    rate (float): distances
+    distance_dict (dict): distances(every structure) of each method
     """
     df_distance = pd.DataFrame(columns=['method', 'distances'])
     file_list = os.listdir(result_folder)
