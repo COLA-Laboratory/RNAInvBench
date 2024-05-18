@@ -19,7 +19,7 @@ def IncaRNAtion(targets, folder, dataset):
     pbar = tqdm([i for i in range(len(targets))])
     for i in pbar:
         target = targets[i]
-        pbar.set_description(f'IncaRNAtion: Processing structure {i}, length: {len(target)}')
+        pbar.set_description(f'IncaRNAtion: Processing structure {i} from dataset {dataset}, length: {len(target)}')
         incarnation_save = folder + "incarnation_" + dataset + "_" + str(i)
         incarnation.call_incarnation(target, save_file=incarnation_save)
 
@@ -27,7 +27,7 @@ def RNA_SSD(targets, folder, dataset):
     pbar = tqdm([i for i in range(len(targets))])
     for i in pbar:
         target = targets[i]
-        pbar.set_description(f'RNA-SSD: Processing structure {i}, length: {len(target)}')
+        pbar.set_description(f'RNA-SSD: Processing structure {i} from dataset {dataset}, length: {len(target)}')
         rnassd_save = folder + "rnassd_" + dataset + "_" + str(i)
         rnassd.call_rnassd(target, save_file=rnassd_save)
 
@@ -35,7 +35,7 @@ def RNAinverse(targets, folder, dataset):
     pbar = tqdm([i for i in range(len(targets))])
     for i in pbar:
         target = targets[i]
-        pbar.set_description(f'RNAinverse: Processing structure {i}, length: {len(target)}')
+        pbar.set_description(f'RNAinverse: Processing structure {i} from dataset {dataset}, length: {len(target)}')
         rnainverse_save = folder +"rnainverse_" + dataset + "_" + str(i)
         rnainverse.call_rnainverse(target, save_file=rnainverse_save)
 
@@ -44,7 +44,7 @@ if __name__ == "__main__":
     dir = 'data/'
     file = 'inverse_rna_folding_benchmark_dotbracket.pkl.gz'
     path = dir + file
-    dataset = 'eterna100_v2'
+    dataset = 'rfam_learn-test'
     range_len = [1, 500]
 
     targets, _ = select_dataset(path, dataset, range_len)
