@@ -67,7 +67,9 @@ def call_incarnation(target_structure, constraints=None, tries=1, GCcontent=None
         return []
 
     # save to file
-    data = {'target_structure': target_structure, 'sequence': output_Seq, 'time': time_consumes, 'distance': output_Dis}
+    if constraints is None:
+        constraints = ''.join(['N'] * len(target_structure))
+    data = {'target_structure': target_structure, 'seq_constraints': constraints, 'sequence': output_Seq, 'time': time_consumes, 'distance': output_Dis}
     df = pd.DataFrame(data)
     save_file = save_file + '.pkl'
     df.to_pickle(save_file)

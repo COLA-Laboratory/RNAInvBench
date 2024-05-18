@@ -26,7 +26,7 @@ def call_rnainverse(target_structure, constraint=None, tries=1, save_file='resul
         time_consume.append(end_time-start_time)
 
     # save to file
-    data = {'target_structure': target_structure, 'sequence': sequences_design, 'time': time_consume, 'distance': distance_design}
+    data = {'target_structure': target_structure, 'seq_constraints': constraint, 'sequence': sequences_design, 'time': time_consume, 'distance': distance_design}
     df = pd.DataFrame(data)
     save_file = save_file + '.pkl'
     df.to_pickle(save_file)

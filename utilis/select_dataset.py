@@ -51,7 +51,7 @@ if __name__ == "__main__":
     # example
 
     dir = '../data/'
-    file = 'inverse_rna_folding_benchmark_dotbracket.pkl.gz'
+    file = 'inverse_rna_folding_train_dotbracket.pkl.gz'
     path = dir + file
 
     # dataset = 'eterna100_v1'  # one database

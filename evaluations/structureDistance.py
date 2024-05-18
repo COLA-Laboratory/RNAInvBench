@@ -36,7 +36,7 @@ def structureDistance(result_folder='results', plot=False):
                 file_path = os.path.join(result_folder, file)
                 df = pd.read_pickle(file_path)  # read the result pickle
                 try:
-                    if df['distance'].any() is not None:
+                    if df['distance'].any():
                         distances_list.append(df['distance'][0])
                 except KeyError:
                     continue
@@ -57,3 +57,7 @@ def structureDistance(result_folder='results', plot=False):
         plt.show()
 
     return df_distance
+
+if __name__ == "__main__":
+    df = structureDistance("../results/eterna100_v2", plot=True)
+

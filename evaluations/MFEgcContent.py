@@ -43,7 +43,7 @@ def MFE_GCcontent(result_folder='results', plot='both'):
                 file_path = os.path.join(result_folder, file)
                 df = pd.read_pickle(file_path)  # read the result pickle
                 try:
-                    if df['sequence'].any() is not None:
+                    if df['sequence'].any():
                         # compute MFE structure
                         structure_pre, mfe = ViennaRNA.fold(df['sequence'][0])
                         # compute gc content

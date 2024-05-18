@@ -44,7 +44,7 @@ if __name__ == "__main__":
     dir = 'data/'
     file = 'inverse_rna_folding_benchmark_dotbracket.pkl.gz'
     path = dir + file
-    dataset = 'rfam_learn-test'
+    dataset = 'eterna100_v2'
     range_len = [1, 500]
 
     targets, _ = select_dataset(path, dataset, range_len)
@@ -67,12 +67,12 @@ if __name__ == "__main__":
     print("all mission completed.")
     
     # # evaluate
-    res = successRate(60, result_folder=folder)
-    for key, value in res.items():
-        print(f'{key}: {value}')
+    # res = successRate(60, result_folder=folder)
+    # for key, value in res.items():
+    #     print(f'{key}: {value}')
 
-    structure_df = structureDistance(plot=True, result_folder=folder)
+    # structure_df = structureDistance(plot=True, result_folder=folder)
 
-    df_MFEgc = MFE_GCcontent(result_folder=folder)
+    # df_MFEgc = MFE_GCcontent(result_folder=folder)
 
 
