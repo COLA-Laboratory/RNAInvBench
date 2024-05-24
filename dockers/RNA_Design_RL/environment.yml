@@ -1,0 +1,13 @@
+name: rna_design_rl
+channels:
+  - bioconda
+  - lb_arrakistx
+dependencies:
+  - viennarna=2.4.8
+  - python=3.6
+  - varna
+  - pip
+  - contrafold
+  - pip:
+      - learna_tools
+      - tensorforce==0.3.3
