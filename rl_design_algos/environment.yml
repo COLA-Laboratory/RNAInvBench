@@ -1,0 +1,10 @@
+name: learna_tools
+channels:
+  - bioconda
+  - lb_arrakistx
+dependencies:
+  - viennarna=2.4.8
+  - python=3.6
+  - varna
+  - pip
+  - contrafold
