@@ -1,0 +1,38 @@
+version: '1.0'
+
+services:
+  rl:
+    build:
+      context: ./rl_design_algos/
+      dockerfile: RNA_Design_RL.dockerfile
+    volumes:
+      - ./rl:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "6000:6000" 
+    working_dir: /app
+
+  optim:
+    build:
+      context: ./rna_design_algorithms/
+      dockerfile: RNA_Design_Optim.dockerfile
+    volumes:
+      - ./optim:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "6001:6001"
+    working_dir: /app
+
+  antarna:
+    build:
+      context: ./rna_design_algorithms/antaRNA/
+      dockerfile: RNA_Design_ANTARNA.dockerfile
+    volumes:
+      - ./antarna:/app  # Corrected volume mount
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "6002:6002" 
+    working_dir: /app
