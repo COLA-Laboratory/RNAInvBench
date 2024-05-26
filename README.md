@@ -35,4 +35,4 @@ We provide example code to run the algorithms, each example run uses the followi
 <p>1. Install RNAInvBench source files.</p>
 <p>2. Install <a href="https://docs.docker.com/get-docker/">docker</a> (if not done so already).</p>
 <p>3. Navigate to the project directory.</p>
-<p>4. Run `docker-compose up --build` to build the docker container.</p>
+<p>4. Run <b>docker-compose up --build</b> to build the docker container.</p>
