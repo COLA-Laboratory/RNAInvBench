@@ -1,4 +1,4 @@
-name: learna_tools
+name: rna_design_rl
 channels:
   - bioconda
   - lb_arrakistx
@@ -8,3 +8,6 @@ dependencies:
   - varna
   - pip
   - contrafold
+  - pip:
+      - learna_tools
+      - tensorforce==0.3.3
