@@ -38,6 +38,6 @@ We provide example code to run the algorithms, each example run uses the followi
 <p>4. Run <b>docker-compose up --build -d</b> to build the docker container.</p>
 Once the docker-container has been fully built, you should see a new container in your docker application. You can then use the following commands to run the example main.py scripts provided:
 
-# NOTE: RL represents the particular docker container to use, you will need to choose between rl, optim and antarna.
-# NOTE2: rnainvbench-main-rl-1 represents the name of the RL docker container, your name may differ - you should check the docker application for your own unique name. 
-docker exec -it $(docker-compose ps -q rl) rnainvbench-main-rl-1 python /app/rl_design_algos/main.py
+<p>NOTE: RL represents the particular docker container to use, you will need to choose between rl, optim and antarna.</p>
+<p>NOTE2: rnainvbench-main-rl-1 represents the name of the RL docker container, your name may differ - you should check the docker application for your own unique name.</p>
+<p><b>docker exec -it $(docker-compose ps -q rl) rnainvbench-main-rl-1 python /app/rl_design_algos/main.py</b></p>
