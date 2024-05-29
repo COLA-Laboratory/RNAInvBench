@@ -1,2 +1,0 @@
-mpmath==1.3.0
-viennarna==2.6.4

@@ -2,7 +2,7 @@ import ViennaRNA
 import time
 import pandas as pd
 
-def call_rnainverse(target_structure, constraint=None, tries=1, save_file='results/rnainverse_result'):
+def call_rnainverse(target_structure, constraint=None, repeat=1, save_file='results/rnainverse_result'):
     """
     Call RNAinverse from ViennaRNA package to find an RNA sequence that folds into the target structure.
     Parameters:
@@ -17,7 +17,7 @@ def call_rnainverse(target_structure, constraint=None, tries=1, save_file='resul
     sequences_design = []
     distance_design = []
     time_consume = []
-    for i in range(tries):
+    for i in range(repeat):
         start_time = time.time()
         seq, dis = ViennaRNA.inverse_fold(constraint, target_structure)
         end_time = time.time()
@@ -36,7 +36,7 @@ def call_rnainverse(target_structure, constraint=None, tries=1, save_file='resul
 if __name__ == '__main__':
     # Example usage:
     target_structure = "(((....)))((...))"
-    rna_sequence = call_rnainverse(target_structure, tries=3)
+    rna_sequence = call_rnainverse(target_structure, repeat=3)
     print(f"RNA sequence that folds into the target structure: {rna_sequence}")
     df = pd.read_pickle("results/rnainverse_result.pkl")
     pass

@@ -1,7 +1,7 @@
 import os
 import sys
 import numpy as np
-from utils.structure import extract_pairs
+from rna_design_algorithms.samfeo.utils.structure import extract_pairs
 
 sys.path.append(os.environ.get('VIENNAPATH'))
 import RNA

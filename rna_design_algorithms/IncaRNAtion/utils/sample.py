@@ -28,7 +28,6 @@ import itertools
 import random
 import math
 import sys
-import os
 
 def MPMATH_MISSING():
     print("""The module `mpmath` was not found. This might impeed the
@@ -715,7 +714,7 @@ def equiprob_profile(n):
     profile = tuple(prob for _ in range(n))
     return profile
 
-def all_probabilities(profile, ref_seq, stuct, alpha):
+def all_probabilities(profile, ref_seq, struct, alpha):
     n = len(struct)
     results = []
     for i in range(n):

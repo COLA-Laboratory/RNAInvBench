@@ -4,7 +4,7 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcontent_paired=0.5, GCcontent_unpaired=0.5, seed='', save_file="rnassd_result"):
+def call_rnassd(target_structure, constraints='', temperature=37, repeat=1, GCcontent_paired=0.5, GCcontent_unpaired=0.5, seed='', save_file="rnassd_result"):
     '''
     Call RNA-SSD from RNA Designer online web application to find an RNA sequence that folds into the target structure.
     Using ViennaRNA packages inside on secondary structure prediction.
@@ -16,7 +16,7 @@ def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcon
         - maximum length: 500
     - temperature (float): temperature of ViennaRNA secondary structure prediction.
         - range: [0.0, 100.0]
-    - tries (int): The number of sequences that are to be designed.
+    - repeat (int): The number of sequences that are to be designed.
         - max: 10
     - GCcontent_paired/GCcontent_unpaired(float): be used to control the target GC content of paired/unpaired bases in the desired structure, and are specified as percentages
         - range: [0, 100]
@@ -47,7 +47,7 @@ def call_rnassd(target_structure, constraints='', temperature=37, tries=1, GCcon
         'structure': target_structure,
         'constraints': constraints,
         'temperature': str(temperature),
-        'tries': str(tries),
+        'tries': str(repeat),
         'GCcontent_paired': str(GCcontent_paired),
         'GCcontent_unpaired': str(GCcontent_unpaired),
         'seed': str(seed),
@@ -166,7 +166,7 @@ def get_email_content(email, email_id):
 # example usage
 if __name__ == "__main__":
     target_structure = "((((((....)))).))..(((..(((...))))))"
-    sequence = call_rnassd(target_structure, tries=1)
+    sequence = call_rnassd(target_structure, repeat=1)
     print(sequence)
 
 

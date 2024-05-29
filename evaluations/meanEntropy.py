@@ -26,7 +26,7 @@ def meanEntropy(result_folder='results', plot=False):
 
     if plot:
         num_violins = len(method_groups)
-        fig, axes = plt.subplots(1, num_violins, figsize=(4 * num_violins, 6))
+        fig, axes = plt.subplots(1, num_violins, figsize=(4 * num_violins, 6), sharey=True)
 
     for i, (method, files) in enumerate(method_groups.items()):
         meanEntropy_list = []

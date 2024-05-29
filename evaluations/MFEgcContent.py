@@ -30,7 +30,7 @@ def MFE_GCcontent(result_folder='results', plot='both'):
 
     if plot:
         num_violins = len(method_groups)
-        fig, axes = plt.subplots(1, num_violins, figsize=(4*num_violins, 6))
+        fig, axes = plt.subplots(1, num_violins, figsize=(4*num_violins, 6), sharey=True)
     if plot == 'both':
         fig2, axes2 = plt.subplots(1, num_violins, figsize=(4*num_violins, 6))
 

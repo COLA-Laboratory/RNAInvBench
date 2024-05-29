@@ -6,7 +6,7 @@ with open(path_txt) as f:
         targets.append(line.strip())
 print(targets)
 #2.  input algorithm and conduct it
-from samfeo import main
+from samfeo_bk import main
 sequence, found_str, target_str, found_dist=main(path=path_txt)
 print(found_dist)
 

@@ -1,8 +1,8 @@
 .idea
 rna_design_algorithms/__pycache__
-rna_design_algorithms/sample_based/IncaRNAtion/data/.DS_Store
-rna_design_algorithms/sample_based/IncaRNAtion/utils/__pycache__
-rna_design_algorithms/sample_based/IncaRNAtion/.DS_Store
+rna_design_algorithms/IncaRNAtion/data/.DS_Store
+rna_design_algorithms/IncaRNAtion/utils/__pycache__
+rna_design_algorithms/IncaRNAtion/.DS_Store
 rna_design_algorithms/sample_based/.DS_Store
 rna_design_algorithms/sample_based/TODO.md
 rna_design_algorithms/.DS_Store
@@ -15,7 +15,13 @@ utilis/__pycache__
 rna_design_algorithms/random_based/__pycache__
 rna_design_algorithms/random_based/results
 rna_design_algorithms/sample_based/__pycache__
-rna_design_algorithms/sample_based/IncaRNAtion/results
-rna_design_algorithms/sample_based/IncaRNAtion/__pycache__
+rna_design_algorithms/IncaRNAtion/results
+rna_design_algorithms/IncaRNAtion/__pycache__
 evaluations/__pycache__
 rna_design_algorithms/results
+rna_design_algorithms/samfeo/__pycache__
+rna_design_algorithms/samfeo/results
+rna_design_algorithms/samfeo/utils/__pycache__
+rna_design_algorithms/samfeo/utils/__pycache__
+rna_design_algorithms/samfeo/utils/__pycache__
+rna_design_algorithms/samfeo/utils/__pycache__
