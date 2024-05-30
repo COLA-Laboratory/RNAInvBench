@@ -36,7 +36,7 @@ def structureDistance(result_folder='results', plot=False):
                 file_path = os.path.join(result_folder, file)
                 df = pd.read_pickle(file_path)  # read the result pickle
                 try:
-                    if df['distance'].any():
+                    if df['distance'].any() >= 0:
                         distances_list.append(df['distance'][0])
                 except KeyError:
                     continue

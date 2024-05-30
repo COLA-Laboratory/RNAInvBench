@@ -36,7 +36,13 @@ def meanEntropy(result_folder='results', plot=False):
                 df = pd.read_pickle(file_path)  # read the result pickle
                 try:
                     if df['sequence'].any():
-                        mean_etp = cal_entropy(df['sequence'].tolist(), df['seq_constraints'][0])
+                        seq_list = df['sequence'].tolist()
+                        try:
+                            seqCons = df['seq_constraints'][0]
+                        except KeyError:
+                            # seq_constraints doesn't exists
+                            seqCons = 'N' * len(seq_list[0])
+                        mean_etp = cal_entropy(seq_list, seqCons)
                         meanEntropy_list.append(mean_etp)
                 except KeyError:
                     continue

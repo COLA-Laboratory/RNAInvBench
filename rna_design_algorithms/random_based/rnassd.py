@@ -159,10 +159,6 @@ def get_email_content(email, email_id):
     return data["body"]
 
 
-
-
-
-
 # example usage
 if __name__ == "__main__":
     target_structure = "((((((....)))).))..(((..(((...))))))"
