@@ -142,7 +142,7 @@ if __name__ == "__main__":
         else:
             dot_brackets = [(1, args.target_structure)]
     elif args.input_file:
-        data = read_task_description(args.input_file)
+        data = pd.read_csv(args.input_file)
         dot_brackets = list((i, db) for i, db in zip(data['Id'], data['str']))
     else:
         raise UserWarning('Please either enter a target structure or an input file')
