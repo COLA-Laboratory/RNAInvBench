@@ -10,8 +10,10 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
     ports:
-      - "6000:6000" 
+      - "6000:6000"
     working_dir: /app
+    entrypoint: ["python"]
+    command: ["main.py"]
 
   optim:
     build:
@@ -30,9 +32,9 @@ services:
       context: ./rna_design_algorithms/antaRNA/
       dockerfile: RNA_Design_ANTARNA.dockerfile
     volumes:
-      - ./antarna:/app  # Corrected volume mount
+      - ./antarna:/app
     environment:
       - PYTHONUNBUFFERED=1
     ports:
-      - "6002:6002" 
+      - "6002:6002"
     working_dir: /app
