@@ -1,4 +1,5 @@
-<h1>RNAInvBench: Benchmark for the RNA Inverse Design Problem</h1>
+<h1>RNAInvBench: Benchmarking RNA Inverse Folding with Secondary and
+Tertiary Structures</h1>
 <p>RNAInvBench is a Python framework that provides an environment, data, and baseline algorithms for training/testing of the RNA Inverse Design Problem.
 The package contains the following algorithms:
 
