@@ -1,0 +1,22 @@
+________________________________________________________________
+        
+    ModeRNA (C) 2009 by Magdalena Rother & Kristian Rother, 
+                         Tomasz Puton, Janusz M. Bujnicki 
+    
+    Building RNA 3D models with comparative modeling approach.
+    
+    support: lenam@amu.edu.pl
+________________________________________________________________       
+
+        
+Template loaded from data/CASP15/split_pdbs/8uyg_1_A.pdb.
+Template sequence:
+GGAGCAUCGUGUCUCAAGUGCUUCACGGUCACAAUAUACCGUUUCGUCGGGUGCGUGGCAAUUCGGUGCACAUCAUGUCUUUCGUGGCUGGUGUGGCUCCUCAAGGUGCGAGGGGCAAGUAUAGAGCAGAGCUCC
+
+Chain OK
+Secondary structure: 
+(((((.((.((.(((..(((((((((((((((...((.(((......)))))..)))))....)).))(((((((.(((......))))))))))(((((((.......))))))))))))).))))))))))))
+
+Secondary structure: 
+(((((.((.((.(((..(((((((((((((((...((.(((......)))))..)))))....)).))(((((((.(((......))))))))))(((((((.......))))))))))))).))))))))))))
+
