@@ -1,0 +1,211 @@
+zap
+load nmrpdb hel_regions.pdb
+# load /home/jack/Tertiary_Models/gRNAde/geometric-rna-design-main/data/3D_Puzzles/7bg9.pdb
+# restrict not (protein or water)
+
+
+#------Helix #1, color: red------
+select 13:N, 55:B
+color red
+
+#------Helix #2, color: green------
+select 15:N, 53:B
+color green
+select 16:N, 52:B
+color green
+select 17:N, 51:B
+color green
+select 18:N, 50:B
+color green
+
+#------Helix #3, color: blue------
+select 27:B, 199:B
+color blue
+select 28:B, 198:B
+color blue
+
+#------Helix #4, color: yellow------
+select 29:B, 193:B
+color yellow
+
+#------Helix #5, color: cyan------
+select 31:B, 195:B
+color cyan
+select 32:B, 192:B
+color cyan
+select 33:B, 191:B
+color cyan
+select 34:B, 190:B
+color cyan
+select 35:B, 189:B
+color cyan
+select 36:B, 188:B
+color cyan
+
+#------Helix #6, color: magenta------
+select 39:B, 40:B
+color magenta
+
+#------Helix #7, color: orange------
+select 62:B, 147:B
+color orange
+select 63:B, 146:B
+color orange
+select 64:B, 145:B
+color orange
+select 65:B, 144:B
+color orange
+select 66:B, 143:B
+color orange
+select 67:B, 142:B
+color orange
+select 68:B, 140:B
+color orange
+select 69:B, 139:B
+color orange
+select 70:B, 138:B
+color orange
+select 71:B, 137:B
+color orange
+select 72:B, 136:B
+color orange
+select 74:B, 135:B
+color orange
+
+#------Helix #8, color: purple------
+select 79:B, 130:B
+color purple
+select 80:B, 129:B
+color purple
+select 81:B, 128:B
+color purple
+select 82:B, 127:B
+color purple
+select 83:B, 126:B
+color purple
+
+#------Helix #9, color: violet------
+select 89:B, 125:B
+color violet
+select 90:B, 124:B
+color violet
+select 91:B, 123:B
+color violet
+select 92:B, 122:B
+color violet
+select 94:B, 121:B
+color violet
+select 95:B, 119:B
+color violet
+
+#------Helix #10, color: red------
+select 96:B, 118:B
+color red
+select 97:B, 117:B
+color red
+select 98:B, 116:B
+color red
+select 99:B, 173:B
+color red
+select 174:B, 115:B
+color red
+select 175:B, 114:B
+color red
+select 176:B, 113:B
+color red
+select 178:B, 112:B
+color red
+select 179:B, 111:B
+color red
+select 180:B, 110:B
+color red
+select 181:B, 109:B
+color red
+select 182:B, 108:B
+color red
+select 183:B, 107:B
+color red
+select 184:B, 106:B
+color red
+
+#------Helix #11, color: green------
+select 238:B, 333:B
+color green
+select 239:B, 332:B
+color green
+select 240:B, 331:B
+color green
+select 241:B, 329:B
+color green
+select 242:B, 327:B
+color green
+select 243:B, 326:B
+color green
+select 244:B, 325:B
+color green
+select 245:B, 324:B
+color green
+select 246:B, 323:B
+color green
+select 247:B, 322:B
+color green
+
+#------Helix #12, color: blue------
+select 253:B, 321:B
+color blue
+select 255:B, 320:B
+color blue
+select 256:B, 300:B
+color blue
+select 257:B, 299:B
+color blue
+select 258:B, 298:B
+color blue
+select 259:B, 297:B
+color blue
+select 260:B, 296:B
+color blue
+select 261:B, 295:B
+color blue
+select 263:B, 294:B
+color blue
+select 264:B, 293:B
+color blue
+select 265:B, 292:B
+color blue
+
+#------Helix #13, color: yellow------
+select 268:B, 288:B
+color yellow
+select 269:B, 287:B
+color yellow
+select 270:B, 286:B
+color yellow
+select 271:B, 284:B
+color yellow
+select 272:B, 283:B
+color yellow
+select 273:B, 282:B
+color yellow
+select 275:B, 280:B
+color yellow
+
+#------Helix #14, color: cyan------
+select 301:B, 315:B
+color cyan
+select 302:B, 314:B
+color cyan
+select 303:B, 313:B
+color cyan
+select 304:B, 312:B
+color cyan
+select 305:B, 311:B
+color cyan
+select 306:B, 309:B
+color cyan
+
+#------Helix #15, color: magenta------
+select 120:B, 168:B
+color magenta
+
+select all

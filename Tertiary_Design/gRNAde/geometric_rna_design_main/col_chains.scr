@@ -1,0 +1,11 @@
+zap
+load nmrpdb hel_regions.pdb
+# load /home/jack/Tertiary_Models/gRNAde/geometric-rna-design-main/data/3D_Puzzles/split_pdbs2/3p59_5_E.pdb
+# restrict not (protein or water)
+
+select 55:E
+color red
+select 58:E
+color green
+
+select all
