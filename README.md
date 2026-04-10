@@ -30,6 +30,7 @@ The package contains the following algorithms:
 - **Tertiary Inverse Design:** 
   - gRNAde
   - RDesign
+  - RhoDesign
   - RiboDiffusion
 
 ## Dataset Overview
